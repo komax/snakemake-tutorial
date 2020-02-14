@@ -9,5 +9,5 @@ dependencies:
   - r-base=3.6.1
   - r-essentials=3.6
   - snakemake-minimal=5.10.0
-  - xsv=0.13.0=0
+  - xsv=0.13.0
 
