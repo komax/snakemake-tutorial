@@ -7,6 +7,8 @@ my_columns = ['site', 'species', 'abundances']
 # Fix the random seed to have reproducible results. 
 random.seed(42)
 
+print("Generating a new dataset...")
+
 def generate_data():
     """
     Generate entries for the dataset.
@@ -18,7 +20,7 @@ def generate_data():
             species = f"genus sp.{subspecies}"
 
             abundance = random.randint(0, 42)
-            print((site, species, abundance))
+            print(f"Added observation: (site={site}, species={species}, abundance={abundance})")
             yield((site, species, abundance))
 
 
@@ -27,4 +29,5 @@ species_site_data_frame = pd.DataFrame(generate_data(), columns=my_columns)
 
 # Dump the generated data to the output.
 species_site_data_frame.to_csv(snakemake.output[0], index=False)
+print("Completed saving dataset as CSV.")
 
